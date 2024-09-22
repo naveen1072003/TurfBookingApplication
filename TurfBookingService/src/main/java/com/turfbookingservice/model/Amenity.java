@@ -5,20 +5,20 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.extern.jackson.Jacksonized;
 
 @Data
-@Builder
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Jacksonized
-@Table
-@Entity
-public class Sample {
+@Builder
+public class Amenity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer amenityId;
 
     private String name;
+
+    @ManyToOne
+    private Turf turf;
 }
